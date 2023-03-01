@@ -12,7 +12,10 @@ use App\Http\Controllers\CustomAuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/Login',[CustomAuthController::class,'Login'])->name('Login');
 Route::get('/',[CustomAuthController::class,'index'] );
 Route::post('/',[CustomAuthController::class,'register'] );
 
+Route::post('/Loginpage',[CustomAuthController::class,'Loginpage'])->name('Loginpage');
+Route::get('/Home',[CustomAuthController::class,'Home']);
+Route::get('/logout',[CustomAuthController::class,'logout']);

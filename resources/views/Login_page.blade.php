@@ -13,23 +13,19 @@
       
     <div class="contanier">
         <div class="form-control">
-            <h2>Registration Form</h2>
+            <h2>Login Form</h2>
             <hr>
-            <form action="/" method="post">
-                @if(Session::has('success'))
-                  <div class="alert alert-success">{{Session::get('success')}}</div>
-                @endif
-                @if(Session::has('failure'))
-                <div class="alert alert-danger">{{Session::get('failure')}}</div>
-              @endif
+            <form action="{{'/Loginpage'}}" method="post">
+              @if(Session::has('success'))
+              <div class="alert alert-success">{{Session::get('success')}}</div>
+            @endif
+            @if(Session::has('failure'))
+            <div class="alert alert-danger">{{Session::get('failure')}}</div>
+          @endif
                 @csrf
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name"><br><br>
-                 @error('name')
-                     <div class="alert alert-danger">{{$message}}</div> 
-                 @enderror
+    
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email"><br><br>
+            <input type="email" id="email" name="email" value="{{old('email')}}"><br><br>
             @error('email')
             <div class="alert alert-danger">{{$message}}</div> 
         @enderror
@@ -40,10 +36,10 @@
         @enderror
           
         
-            <input type="submit" value="Register">
+            <input type="submit" value="login">
             <input type="reset" value="Reset">
             <hr>
-            <a href="Login">LOGIN !!!</a>
+            <a href="/">Registration !!!</a>
         </form>
         </div>
     </div>
